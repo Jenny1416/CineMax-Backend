@@ -30,3 +30,16 @@ app.use("/ventas", ventaRoutes);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Servidor escuchando en puerto ${PORT}`));
+
+import Venta from "./models/Venta.js";
+
+app.post("/ventas", async (req, res) => {
+  try {
+    const venta = new Venta(req.body);
+    const saved = await venta.save();
+    res.json(saved);
+  } catch (error) {
+    console.error("Error al guardar venta:", error);
+    res.status(500).json({ error: "Error al guardar venta" });
+  }
+});
