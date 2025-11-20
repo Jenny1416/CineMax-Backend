@@ -28,5 +28,5 @@ app.use("/usuarios", usuarioRoutes);
 app.use("/reservas", reservaRoutes);
 app.use("/ventas", ventaRoutes);
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => console.log(`Servidor escuchando en puerto ${PORT}`));
